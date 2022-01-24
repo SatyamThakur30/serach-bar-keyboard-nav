@@ -39,6 +39,9 @@ router.get("/get-by-filter", async (req, res) => {
                 {
                     address: { $regex: new RegExp("\\b" + ".*" + text + ".*" + "\\b"), $options: 'i' }
                 },
+                {
+                    items:{ $elemMatch:{ $regex: new RegExp("\\b" + ".*" + text + ".*" + "\\b"), $options: 'i' }}
+                }
 
 
             ]
